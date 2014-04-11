@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		492681B518EAAA4600E5CBB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681B418EAAA4600E5CBB4 /* Foundation.framework */; };
+		492681B718EAAA4600E5CBB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681B618EAAA4600E5CBB4 /* CoreGraphics.framework */; };
+		492681B918EAAA4600E5CBB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681B818EAAA4600E5CBB4 /* UIKit.framework */; };
+		492681BF18EAAA4600E5CBB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 492681BD18EAAA4600E5CBB4 /* InfoPlist.strings */; };
+		492681C118EAAA4600E5CBB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 492681C018EAAA4600E5CBB4 /* main.m */; };
+		492681C518EAAA4600E5CBB4 /* SBTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 492681C418EAAA4600E5CBB4 /* SBTAppDelegate.m */; };
+		492681CD18EAAA4600E5CBB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492681CC18EAAA4600E5CBB4 /* Images.xcassets */; };
+		492681D418EAAA4600E5CBB4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681D318EAAA4600E5CBB4 /* XCTest.framework */; };
+		492681D518EAAA4600E5CBB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681B418EAAA4600E5CBB4 /* Foundation.framework */; };
+		492681D618EAAA4600E5CBB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492681B818EAAA4600E5CBB4 /* UIKit.framework */; };
+		492681DE18EAAA4600E5CBB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 492681DC18EAAA4600E5CBB4 /* InfoPlist.strings */; };
+		492681E018EAAA4600E5CBB4 /* SchoolBusTimetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 492681DF18EAAA4600E5CBB4 /* SchoolBusTimetableTests.m */; };
+		492681F418EBF9F300E5CBB4 /* SBTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492681F318EBF9F300E5CBB4 /* SBTTableViewController.m */; };
+		4948654718F2471000EAA77C /* SBTBusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948654618F2471000EAA77C /* SBTBusDetailViewController.m */; };
+		4948656C18F2E79000EAA77C /* Campus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4948656B18F2E79000EAA77C /* Campus.plist */; };
+		4948656E18F2EC1600EAA77C /* Timetable.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4948656D18F2EC1600EAA77C /* Timetable.plist */; };
+		4948665B18F58A0300EAA77C /* SBTNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948665A18F58A0300EAA77C /* SBTNotificationHelper.m */; };
+		4948665F18F78D1200EAA77C /* SBTDateTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948665E18F78D1200EAA77C /* SBTDateTimeHelper.m */; };
+		4948666218F79D6B00EAA77C /* SBTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948666118F79D6B00EAA77C /* SBTConstants.m */; };
+		4952987618EE5645005EC1F0 /* SBTTimetableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4952987518EE5645005EC1F0 /* SBTTimetableModel.m */; };
+		4952988618F16DFC005EC1F0 /* SBTCampusPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		492681D718EAAA4600E5CBB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 492681A918EAAA4500E5CBB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 492681B018EAAA4600E5CBB4;
+			remoteInfo = SchoolBusTimetable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		492681B118EAAA4600E5CBB4 /* SchoolBusTimetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolBusTimetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		492681B418EAAA4600E5CBB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		492681B618EAAA4600E5CBB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		492681B818EAAA4600E5CBB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		492681BC18EAAA4600E5CBB4 /* SchoolBusTimetable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SchoolBusTimetable-Info.plist"; sourceTree = "<group>"; };
+		492681BE18EAAA4600E5CBB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		492681C018EAAA4600E5CBB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		492681C218EAAA4600E5CBB4 /* SchoolBusTimetable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SchoolBusTimetable-Prefix.pch"; sourceTree = "<group>"; };
+		492681C318EAAA4600E5CBB4 /* SBTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBTAppDelegate.h; sourceTree = "<group>"; };
+		492681C418EAAA4600E5CBB4 /* SBTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBTAppDelegate.m; sourceTree = "<group>"; };
+		492681CC18EAAA4600E5CBB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		492681D218EAAA4600E5CBB4 /* SchoolBusTimetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolBusTimetableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		492681D318EAAA4600E5CBB4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		492681DB18EAAA4600E5CBB4 /* SchoolBusTimetableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SchoolBusTimetableTests-Info.plist"; sourceTree = "<group>"; };
+		492681DD18EAAA4600E5CBB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		492681DF18EAAA4600E5CBB4 /* SchoolBusTimetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolBusTimetableTests.m; sourceTree = "<group>"; };
+		492681F218EBF9F300E5CBB4 /* SBTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTTableViewController.h; sourceTree = "<group>"; };
+		492681F318EBF9F300E5CBB4 /* SBTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTTableViewController.m; sourceTree = "<group>"; };
+		4948654518F2471000EAA77C /* SBTBusDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTBusDetailViewController.h; sourceTree = "<group>"; };
+		4948654618F2471000EAA77C /* SBTBusDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTBusDetailViewController.m; sourceTree = "<group>"; };
+		4948656B18F2E79000EAA77C /* Campus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Campus.plist; sourceTree = "<group>"; };
+		4948656D18F2EC1600EAA77C /* Timetable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Timetable.plist; sourceTree = "<group>"; };
+		4948665918F58A0300EAA77C /* SBTNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTNotificationHelper.h; sourceTree = "<group>"; };
+		4948665A18F58A0300EAA77C /* SBTNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTNotificationHelper.m; sourceTree = "<group>"; };
+		4948665D18F78D1200EAA77C /* SBTDateTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTDateTimeHelper.h; sourceTree = "<group>"; };
+		4948665E18F78D1200EAA77C /* SBTDateTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTDateTimeHelper.m; sourceTree = "<group>"; };
+		4948666018F79D6B00EAA77C /* SBTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTConstants.h; sourceTree = "<group>"; };
+		4948666118F79D6B00EAA77C /* SBTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTConstants.m; sourceTree = "<group>"; };
+		4952987418EE5645005EC1F0 /* SBTTimetableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTTimetableModel.h; sourceTree = "<group>"; };
+		4952987518EE5645005EC1F0 /* SBTTimetableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTTimetableModel.m; sourceTree = "<group>"; };
+		4952988418F16DFC005EC1F0 /* SBTCampusPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTCampusPickerViewController.h; sourceTree = "<group>"; };
+		4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTCampusPickerViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		492681AE18EAAA4600E5CBB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492681B718EAAA4600E5CBB4 /* CoreGraphics.framework in Frameworks */,
+				492681B918EAAA4600E5CBB4 /* UIKit.framework in Frameworks */,
+				492681B518EAAA4600E5CBB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		492681CF18EAAA4600E5CBB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492681D418EAAA4600E5CBB4 /* XCTest.framework in Frameworks */,
+				492681D618EAAA4600E5CBB4 /* UIKit.framework in Frameworks */,
+				492681D518EAAA4600E5CBB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		492681A818EAAA4500E5CBB4 = {
+			isa = PBXGroup;
+			children = (
+				492681BA18EAAA4600E5CBB4 /* SchoolBusTimetable */,
+				492681D918EAAA4600E5CBB4 /* SchoolBusTimetableTests */,
+				492681B318EAAA4600E5CBB4 /* Frameworks */,
+				492681B218EAAA4600E5CBB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		492681B218EAAA4600E5CBB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				492681B118EAAA4600E5CBB4 /* SchoolBusTimetable.app */,
+				492681D218EAAA4600E5CBB4 /* SchoolBusTimetableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		492681B318EAAA4600E5CBB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				492681B418EAAA4600E5CBB4 /* Foundation.framework */,
+				492681B618EAAA4600E5CBB4 /* CoreGraphics.framework */,
+				492681B818EAAA4600E5CBB4 /* UIKit.framework */,
+				492681D318EAAA4600E5CBB4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		492681BA18EAAA4600E5CBB4 /* SchoolBusTimetable */ = {
+			isa = PBXGroup;
+			children = (
+				492681C318EAAA4600E5CBB4 /* SBTAppDelegate.h */,
+				492681C418EAAA4600E5CBB4 /* SBTAppDelegate.m */,
+				492681F218EBF9F300E5CBB4 /* SBTTableViewController.h */,
+				492681F318EBF9F300E5CBB4 /* SBTTableViewController.m */,
+				4952988418F16DFC005EC1F0 /* SBTCampusPickerViewController.h */,
+				4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */,
+				4948654518F2471000EAA77C /* SBTBusDetailViewController.h */,
+				4948654618F2471000EAA77C /* SBTBusDetailViewController.m */,
+				4948665C18F78CE200EAA77C /* Helper Classes */,
+				4952987718EE631B005EC1F0 /* Model Classes */,
+				4948666318F79D7400EAA77C /* Constants */,
+				492681CC18EAAA4600E5CBB4 /* Images.xcassets */,
+				492681BB18EAAA4600E5CBB4 /* Supporting Files */,
+			);
+			path = SchoolBusTimetable;
+			sourceTree = "<group>";
+		};
+		492681BB18EAAA4600E5CBB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				492681BC18EAAA4600E5CBB4 /* SchoolBusTimetable-Info.plist */,
+				4948656B18F2E79000EAA77C /* Campus.plist */,
+				4948656D18F2EC1600EAA77C /* Timetable.plist */,
+				492681BD18EAAA4600E5CBB4 /* InfoPlist.strings */,
+				492681C018EAAA4600E5CBB4 /* main.m */,
+				492681C218EAAA4600E5CBB4 /* SchoolBusTimetable-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		492681D918EAAA4600E5CBB4 /* SchoolBusTimetableTests */ = {
+			isa = PBXGroup;
+			children = (
+				492681DF18EAAA4600E5CBB4 /* SchoolBusTimetableTests.m */,
+				492681DA18EAAA4600E5CBB4 /* Supporting Files */,
+			);
+			path = SchoolBusTimetableTests;
+			sourceTree = "<group>";
+		};
+		492681DA18EAAA4600E5CBB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				492681DB18EAAA4600E5CBB4 /* SchoolBusTimetableTests-Info.plist */,
+				492681DC18EAAA4600E5CBB4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4948665C18F78CE200EAA77C /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4948665918F58A0300EAA77C /* SBTNotificationHelper.h */,
+				4948665A18F58A0300EAA77C /* SBTNotificationHelper.m */,
+				4948665D18F78D1200EAA77C /* SBTDateTimeHelper.h */,
+				4948665E18F78D1200EAA77C /* SBTDateTimeHelper.m */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		4948666318F79D7400EAA77C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4948666018F79D6B00EAA77C /* SBTConstants.h */,
+				4948666118F79D6B00EAA77C /* SBTConstants.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		4952987718EE631B005EC1F0 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4952987418EE5645005EC1F0 /* SBTTimetableModel.h */,
+				4952987518EE5645005EC1F0 /* SBTTimetableModel.m */,
+			);
+			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		492681B018EAAA4600E5CBB4 /* SchoolBusTimetable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 492681E318EAAA4600E5CBB4 /* Build configuration list for PBXNativeTarget "SchoolBusTimetable" */;
+			buildPhases = (
+				492681AD18EAAA4600E5CBB4 /* Sources */,
+				492681AE18EAAA4600E5CBB4 /* Frameworks */,
+				492681AF18EAAA4600E5CBB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchoolBusTimetable;
+			productName = SchoolBusTimetable;
+			productReference = 492681B118EAAA4600E5CBB4 /* SchoolBusTimetable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		492681D118EAAA4600E5CBB4 /* SchoolBusTimetableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 492681E618EAAA4600E5CBB4 /* Build configuration list for PBXNativeTarget "SchoolBusTimetableTests" */;
+			buildPhases = (
+				492681CE18EAAA4600E5CBB4 /* Sources */,
+				492681CF18EAAA4600E5CBB4 /* Frameworks */,
+				492681D018EAAA4600E5CBB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				492681D818EAAA4600E5CBB4 /* PBXTargetDependency */,
+			);
+			name = SchoolBusTimetableTests;
+			productName = SchoolBusTimetableTests;
+			productReference = 492681D218EAAA4600E5CBB4 /* SchoolBusTimetableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		492681A918EAAA4500E5CBB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SBT;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Fudan University";
+				TargetAttributes = {
+					492681D118EAAA4600E5CBB4 = {
+						TestTargetID = 492681B018EAAA4600E5CBB4;
+					};
+				};
+			};
+			buildConfigurationList = 492681AC18EAAA4500E5CBB4 /* Build configuration list for PBXProject "SchoolBusTimetable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 492681A818EAAA4500E5CBB4;
+			productRefGroup = 492681B218EAAA4600E5CBB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				492681B018EAAA4600E5CBB4 /* SchoolBusTimetable */,
+				492681D118EAAA4600E5CBB4 /* SchoolBusTimetableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		492681AF18EAAA4600E5CBB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4948656E18F2EC1600EAA77C /* Timetable.plist in Resources */,
+				492681CD18EAAA4600E5CBB4 /* Images.xcassets in Resources */,
+				4948656C18F2E79000EAA77C /* Campus.plist in Resources */,
+				492681BF18EAAA4600E5CBB4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		492681D018EAAA4600E5CBB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492681DE18EAAA4600E5CBB4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		492681AD18EAAA4600E5CBB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492681C518EAAA4600E5CBB4 /* SBTAppDelegate.m in Sources */,
+				492681C118EAAA4600E5CBB4 /* main.m in Sources */,
+				4948654718F2471000EAA77C /* SBTBusDetailViewController.m in Sources */,
+				492681F418EBF9F300E5CBB4 /* SBTTableViewController.m in Sources */,
+				4948665F18F78D1200EAA77C /* SBTDateTimeHelper.m in Sources */,
+				4952987618EE5645005EC1F0 /* SBTTimetableModel.m in Sources */,
+				4952988618F16DFC005EC1F0 /* SBTCampusPickerViewController.m in Sources */,
+				4948666218F79D6B00EAA77C /* SBTConstants.m in Sources */,
+				4948665B18F58A0300EAA77C /* SBTNotificationHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		492681CE18EAAA4600E5CBB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492681E018EAAA4600E5CBB4 /* SchoolBusTimetableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		492681D818EAAA4600E5CBB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 492681B018EAAA4600E5CBB4 /* SchoolBusTimetable */;
+			targetProxy = 492681D718EAAA4600E5CBB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		492681BD18EAAA4600E5CBB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				492681BE18EAAA4600E5CBB4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		492681DC18EAAA4600E5CBB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				492681DD18EAAA4600E5CBB4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		492681E118EAAA4600E5CBB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		492681E218EAAA4600E5CBB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		492681E418EAAA4600E5CBB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SchoolBusTimetable/SchoolBusTimetable-Prefix.pch";
+				INFOPLIST_FILE = "SchoolBusTimetable/SchoolBusTimetable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		492681E518EAAA4600E5CBB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SchoolBusTimetable/SchoolBusTimetable-Prefix.pch";
+				INFOPLIST_FILE = "SchoolBusTimetable/SchoolBusTimetable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		492681E718EAAA4600E5CBB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SchoolBusTimetable.app/SchoolBusTimetable";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SchoolBusTimetable/SchoolBusTimetable-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SchoolBusTimetableTests/SchoolBusTimetableTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		492681E818EAAA4600E5CBB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SchoolBusTimetable.app/SchoolBusTimetable";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SchoolBusTimetable/SchoolBusTimetable-Prefix.pch";
+				INFOPLIST_FILE = "SchoolBusTimetableTests/SchoolBusTimetableTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		492681AC18EAAA4500E5CBB4 /* Build configuration list for PBXProject "SchoolBusTimetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				492681E118EAAA4600E5CBB4 /* Debug */,
+				492681E218EAAA4600E5CBB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		492681E318EAAA4600E5CBB4 /* Build configuration list for PBXNativeTarget "SchoolBusTimetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				492681E418EAAA4600E5CBB4 /* Debug */,
+				492681E518EAAA4600E5CBB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		492681E618EAAA4600E5CBB4 /* Build configuration list for PBXNativeTarget "SchoolBusTimetableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				492681E718EAAA4600E5CBB4 /* Debug */,
+				492681E818EAAA4600E5CBB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 492681A918EAAA4500E5CBB4 /* Project object */;
+}

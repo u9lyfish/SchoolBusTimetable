@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>江湾邯郸</key>
+	<array>
+		<string>09:00</string>
+		<string>16:00</string>
+		<string>22:00</string>
+	</array>
+	<key>邯郸江湾</key>
+	<array>
+		<string>08:00</string>
+		<string>15:00</string>
+	</array>
+</dict>
+</plist>

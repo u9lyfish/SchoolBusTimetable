@@ -401,6 +401,10 @@
     // show prompt view with animation
     CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - self.promptView.height;
     
+    if (DeviceSystemMajorVersion() == 6) {
+        tableViewHeight = tableViewHeight - [SBTConstants UITopOffset];
+    }
+    
     [UIView beginAnimations:nil context:NULL];
     [self.tableView setHeight:tableViewHeight];
     [self.promptView setY:tableViewHeight];
@@ -409,10 +413,31 @@
 
 - (void)hidePrompt
 {
+    // show prompt view with animation
+    CGFloat tableViewHeight = [SBTConstants UIScreenHeight];
+    
+    if (DeviceSystemMajorVersion() == 6) {
+        tableViewHeight = tableViewHeight - [SBTConstants UITopOffset];
+    }
+
     [UIView beginAnimations:nil context:NULL];
-    [self.tableView setHeight:[SBTConstants UIScreenHeight]];
-    [self.promptView setY:[SBTConstants UIScreenHeight]];
+    [self.tableView setHeight:tableViewHeight];
+    [self.promptView setY:tableViewHeight];
     [UIView commitAnimations];
+}
+
+/*! Returns the major version of iOS, (i.e. for iOS 6.1.3 it returns 6)
+ */
+NSUInteger DeviceSystemMajorVersion()
+{
+    static NSUInteger _deviceSystemMajorVersion = -1;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
+    });
+    
+    return _deviceSystemMajorVersion;
 }
 
 
@@ -467,7 +492,14 @@
 - (UIView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:[SBTConstants UIScreenFrame]];
+        CGFloat tableViewHeight = [SBTConstants UIScreenHeight];
+        if (DeviceSystemMajorVersion() == 6) {
+            tableViewHeight = tableViewHeight - [SBTConstants UITopOffset];
+        }
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
+                                                                   0.0f,
+                                                                   [SBTConstants UIScreenWidth],
+                                                                   tableViewHeight)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

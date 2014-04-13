@@ -14,8 +14,10 @@
 
 @property (nonatomic) SBTTableViewController *timetableViewController;
 
+
 #pragma mark - Model classes
 @property (nonatomic, strong) SBTTimetableModel *timetableModel;
+
 
 #pragma mark - UI components
 @property (nonatomic, strong) UILabel *labelForRoute;
@@ -25,14 +27,10 @@
 @property (nonatomic, strong) UILabel *minuteLabel;     // UILabel to display remind time ahead
 @property (nonatomic, strong) UIPickerView *minutePicker;       // UIPicker to choose remind time ahead in minutes
 
+
 @end
 
 @implementation SBTBusDetailViewController
-
-- (void)loadView {
-    // not calling super, use scroll view to solve navigation bar overlapping: http://blog.motioninmotion.tv/fixing-the-ios-7-navigation-bar-overlap-problem
-    self.view = [UIScrollView new];
-}
 
 - (id)initWithTimetableViewController:(SBTTableViewController *)timetableViewController
 {
@@ -41,6 +39,11 @@
         self.timetableViewController = timetableViewController;
     }
     return self;
+}
+
+- (void)loadView {
+    // not calling super, use scroll view to solve navigation bar overlapping: http://blog.motioninmotion.tv/fixing-the-ios-7-navigation-bar-overlap-problem
+    self.view = [UIScrollView new];
 }
 
 - (void)viewDidLoad
@@ -98,8 +101,8 @@
 
     NSDictionary *metrics = @{
                               @"screenWidth": [NSNumber numberWithFloat:[SBTConstants UIScreenWidth]],
-                              @"hMargin": @12.0,
-                              @"vMargin": @18.0,
+                              @"hMargin": @12.0f,
+                              @"vMargin": @18.0f,
                               @"rowHeight": [NSNumber numberWithFloat:[SBTConstants UIRowHeight]]
                               };
 
@@ -113,6 +116,7 @@
     [self.view addConstraints:constraints];
 }
 
+
 #pragma mark - PickerView delegate
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -120,6 +124,7 @@
     NSString *minute = [SBTBusDetailViewController minutePickerRows][row];
     self.minuteLabel.text = [self minuteLabelText:minute];
 }
+
 
 #pragma mark - PickerView data source
 
@@ -137,6 +142,7 @@
 {
     return [SBTBusDetailViewController minutePickerRows][row];
 }
+
 
 #pragma mark - Event handlers
 
@@ -162,8 +168,6 @@
     }
 }
 
-#pragma mark - UI builders
-
 
 #pragma mark - Helper routines
 
@@ -177,12 +181,14 @@
     return [SBTBusDetailViewController minutePickerRows][[self.minutePicker selectedRowInComponent:0]];
 }
 
+
 #pragma mark - Constant wrappers
 
 + (NSArray *)minutePickerRows
 {
     return @[@"5", @"10", @"15", @"20", @"25", @"30"];
 }
+
 
 #pragma mark - UI components
 

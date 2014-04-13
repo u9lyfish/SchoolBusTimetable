@@ -47,7 +47,7 @@
 @implementation SBTTableViewController
 
 {
-    BOOL pickerHiddeh;
+    BOOL pickerHidden;
 }
 
 @synthesize departure = _departure;
@@ -113,19 +113,6 @@
     [self.view addSubview:self.promptView];
 }
 
-- (NSString *)getChosenBusTime
-{
-    return self.chosenBus;
-}
-
-- (void)setDeparture:(NSString *)departure andArrival:(NSString *)arrival
-{
-    self.departure = departure;
-    self.arrival = arrival;
-    
-    [self.tableView reloadData];
-}
-
 - (void)setAlarmForChosenBusWithMinutesAhead:(NSString *)minutes
 {
     // alarm settings for certain route, e.g. "邯郸江湾"
@@ -148,7 +135,7 @@
     NSString *notificationMessage = [NSString stringWithFormat:@"%@ %@ 的校车即将发车",
                                      [self getReadableCurrentRoute],
                                      self.chosenBus];
-    UILocalNotification *notification = [SBTNotificationHelper addNotificationWithMessage:notificationMessage andActionButtonTitle:@"关闭" atTimeOfDay:timeOfToday];
+    UILocalNotification *notification = [SBTNotificationHelper addNotificationWithMessage:notificationMessage andActionButtonTitle:nil atTimeOfDay:timeOfToday];
     
     // set up alarm for certain bus (of chosen route)
     NSDictionary *alarmForBus = @{@"minutesAhead":minutes, @"notification":notification};
@@ -181,6 +168,11 @@
 - (NSString *)getAlarmMinutesAheadForChosenBus
 {
     return [[self getAlarmMinutesAheadForBusOfCurrentRoute:self.chosenBus] objectForKey:@"minutesAhead"];
+}
+
+- (NSString *)getChosenBusTime
+{
+    return self.chosenBus;
 }
 
 
@@ -283,7 +275,6 @@
 
     [self.header addConstraints:constraints];
     
-    [self.header sizeToFit];
     return self.header;
 }
 
@@ -294,10 +285,6 @@
 
 
 #pragma mark - Picker view delegate
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    
-}
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -313,6 +300,7 @@
 #pragma mark - Picker view data source
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
+    // | departure | ▸ | arrival |
     return 3;
 }
 
@@ -330,12 +318,12 @@
 #pragma mark - Event handlers
 - (void)placeholderForRoutePressed
 {
-    if (pickerHiddeh) {
+    if (pickerHidden) {
         [self showPrompt];
-        pickerHiddeh = NO;
+        pickerHidden = NO;
     } else {
         [self hidePrompt];
-        pickerHiddeh = YES;
+        pickerHidden = YES;
     }
     
 }
@@ -391,6 +379,16 @@
             ];
 }
 
+// We force departure and arrival to be set at the same time to avoid the very case when departure equal to arrival in some temporary process,
+// e.g., when switching value with each other. This will also trigger table view reload data.
+- (void)setDeparture:(NSString *)departure andArrival:(NSString *)arrival
+{
+    self.departure = departure;
+    self.arrival = arrival;
+    
+    [self.tableView reloadData];
+}
+
 - (void)showPrompt
 {
     // scroll to currently chosen campuses
@@ -400,7 +398,8 @@
     NSInteger arrivalIndex = [[self.timetableModel getCampusNames] indexOfObject:self.arrival];
     [self.campusPicker selectRow:arrivalIndex inComponent:2 animated:NO];
 
-    CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - [SBTConstants UITopOffset] - self.promptView.height;
+    // show prompt view with animation
+    CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - self.promptView.height;
     
     [UIView beginAnimations:nil context:NULL];
     [self.tableView setHeight:tableViewHeight];
@@ -410,10 +409,8 @@
 
 - (void)hidePrompt
 {
-    CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - [SBTConstants UITopOffset];
-
     [UIView beginAnimations:nil context:NULL];
-    [self.tableView setHeight:tableViewHeight];
+    [self.tableView setHeight:[SBTConstants UIScreenHeight]];
     [self.promptView setY:[SBTConstants UIScreenHeight]];
     [UIView commitAnimations];
 }
@@ -428,7 +425,7 @@
 
 - (NSString *)departure
 {
-    if (!_departure) {
+    if (_departure == nil) {
         _departure = @"邯郸";
     }
     
@@ -443,7 +440,7 @@
 
 - (NSString *)arrival
 {
-    if (!_arrival) {
+    if (_arrival == nil) {
         _arrival = @"江湾";
     }
     
@@ -521,7 +518,7 @@
         _campusPicker.showsSelectionIndicator = YES;
         _campusPicker.delegate = self;
         _campusPicker.dataSource = self;
-        pickerHiddeh = true;
+        pickerHidden = true;
     }
     return _campusPicker;
 }

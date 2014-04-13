@@ -10,11 +10,6 @@
 
 @implementation SBTConstants
 
-+ (CGFloat)UILeftRightEdgeMargin
-{
-    return 12.0f;
-}
-
 + (CGFloat)UITopOffset
 {
     return 64.0f;

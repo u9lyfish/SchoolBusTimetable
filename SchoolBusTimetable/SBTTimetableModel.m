@@ -19,14 +19,6 @@
 
 static SBTTimetableModel *_sharedTimetableModel = nil;
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 + (SBTTimetableModel *)sharedTimetableModel
 {
     @synchronized(self)
@@ -42,7 +34,7 @@ static SBTTimetableModel *_sharedTimetableModel = nil;
 {
     NSAssert([self isValidCampusName:departure], @"Invalid departure campus");
     NSAssert([self isValidCampusName:arrival], @"Invalid arrival campus");
-    NSAssert(![departure isEqualToString:arrival], @"Departure campus cannot equal to arrival campus");
+    NSAssert([departure isEqualToString:arrival] == NO, @"Departure campus cannot equal to arrival campus");
     
     NSString *route = [departure stringByAppendingString:arrival];
     return [self.timetableForAllRoutes objectForKey:route];
@@ -50,7 +42,7 @@ static SBTTimetableModel *_sharedTimetableModel = nil;
 
 - (NSArray *)getCampusNames
 {
-    if (!_campusNames) {
+    if (_campusNames == nil) {
         _campusNames = [self fetchCampusNamesFromStorage];
     }
     return _campusNames;
@@ -65,7 +57,7 @@ static SBTTimetableModel *_sharedTimetableModel = nil;
 
 - (NSDictionary *)timetableForAllRoutes
 {
-    if (!_timetableForAllRoutes) {
+    if (_timetableForAllRoutes == nil) {
         _timetableForAllRoutes = [self fetchTimetableForAllRoutesFromStorage];
     }
     return _timetableForAllRoutes;
@@ -80,7 +72,7 @@ static SBTTimetableModel *_sharedTimetableModel = nil;
     NSString *plistPath;
     plistPath = [rootPath stringByAppendingPathComponent:[plist stringByAppendingString:@".plist"]];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath] == NO) {
         plistPath = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
     }
     
@@ -93,7 +85,7 @@ static SBTTimetableModel *_sharedTimetableModel = nil;
                                   format:&format
                                   errorDescription:&errorDesc];
 
-    if (!result) {
+    if (result == nil) {
         NSLog(@"Error reading plist: %@, format: %u", errorDesc, format);
     }
 

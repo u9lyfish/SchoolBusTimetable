@@ -8,11 +8,11 @@
 
 #import "SBTTimetableModel.h"
 #import "SBTTableViewController.h"
-#import "SBTCampusPickerViewController.h"
 #import "SBTBusDetailViewController.h"
 #import "SBTNotificationHelper.h"
 #import "SBTDateTimeHelper.h"
 #import "SBTConstants.h"
+#import "UIView+CGLibrary.h"
 
 //#define ___DEBUG___
 
@@ -33,17 +33,36 @@
 
 
 #pragma - UI components
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UIButton *placeholderForRoute;
 @property (nonatomic, strong) UIButton *buttonReturnRoute;
+@property (nonatomic, strong) UIView *promptView;
+@property (nonatomic, strong) UIButton *doneButton;
+@property (nonatomic, strong) UIPickerView *campusPicker;
+
 
 @end
 
 @implementation SBTTableViewController
 
+{
+    BOOL pickerHiddeh;
+}
+
 @synthesize departure = _departure;
 @synthesize arrival = _arrival;
 
+
+// view structure:
+//  UIVIew
+//  - UITableView
+//      - placeholders for bus route
+//      - UITableViewCell
+//  - UIView (prompt view)
+//      - title and done button
+//      - UIPickerView
+//
 - (void)viewDidLoad {
 #ifdef ___DEBUG___
     NSLog(@"viewDidLoad");
@@ -51,6 +70,47 @@
     
     [super viewDidLoad];
     self.title = @"校车时刻表";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    CGFloat buttonHeight = 30.0f;
+    CGFloat buttonWidth = 45.0f;
+    CGFloat hMargin = 12.0f;
+    CGFloat vMargin = 6.0f;
+    
+    [self.doneButton setFrame:CGRectMake([SBTConstants UIScreenWidth] - hMargin - buttonWidth,
+                                        vMargin,
+                                        buttonWidth,
+                                         buttonHeight)];
+    [self.campusPicker setY:buttonHeight + vMargin * 2];    // UIPickerView will always adjust its size itself
+    [self.promptView setFrame:CGRectMake(0.0f,
+                                        [SBTConstants UIScreenHeight],
+                                        [SBTConstants UIScreenWidth],
+                                         vMargin * 2 + buttonHeight + self.campusPicker.height)];
+    
+    [self.promptView addSubview:self.doneButton];
+    [self.promptView addSubview:self.campusPicker];
+    
+    // auto layout is buggy, don't know why.
+    /*
+    // turn off for auto layout
+    [self.doneButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.campusPicker setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.promptView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    // use auto layout to set size and position
+    NSMutableArray *constraints = [NSMutableArray array];
+    
+    UIButton *doneButton = self.doneButton;
+    UIPickerView *campusPicker = self.campusPicker;
+    
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[doneButton]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(doneButton)]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[doneButton(==30)]-[campusPicker]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(doneButton, campusPicker)]];
+    
+    [self.promptView addConstraints:constraints];
+     */
+
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.promptView];
 }
 
 - (NSString *)getChosenBusTime
@@ -233,17 +293,76 @@
 }
 
 
-#pragma mark - Event handlers
+#pragma mark - Picker view delegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+}
 
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (component == 1) {
+        // the middle row shows an arrow ("▸") only
+        return @"▸";
+    } else {
+        return [self.timetableModel getCampusNames][row];
+    }
+}
+
+
+#pragma mark - Picker view data source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 3;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (component == 1) {
+        // the middle row shows an arrow ("▸") only
+        return 1;
+    } else {
+        return [self.timetableModel getCampusNames].count;
+    }
+}
+
+
+#pragma mark - Event handlers
 - (void)placeholderForRoutePressed
 {
-    SBTCampusPickerViewController *campusPickerViewController = [[SBTCampusPickerViewController alloc] initWithTimetableViewController:self];
-    [self.navigationController pushViewController:campusPickerViewController animated:YES];
+    if (pickerHiddeh) {
+        [self showPrompt];
+        pickerHiddeh = NO;
+    } else {
+        [self hidePrompt];
+        pickerHiddeh = YES;
+    }
+    
 }
 
 - (void)buttonReturnRoutePressed
 {
     [self setDeparture:self.arrival andArrival:self.departure];
+}
+
+- (void)doneButtonPressed
+{
+    NSString *departure = [self.timetableModel getCampusNames][[self.campusPicker selectedRowInComponent:0]];
+    NSString *arrival = [self.timetableModel getCampusNames][[self.campusPicker selectedRowInComponent:2]];
+    
+    if ([departure isEqualToString:arrival]) {
+        // alert?
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"请选择一个不同的校区作为终点"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    [self setDeparture:departure andArrival:arrival];
+    [self hidePrompt];
 }
 
 
@@ -270,6 +389,33 @@
             self.departure,
             self.arrival
             ];
+}
+
+- (void)showPrompt
+{
+    // scroll to currently chosen campuses
+    NSInteger departureIndex = [[self.timetableModel getCampusNames] indexOfObject:self.departure];
+    [self.campusPicker selectRow:departureIndex inComponent:0 animated:NO];
+
+    NSInteger arrivalIndex = [[self.timetableModel getCampusNames] indexOfObject:self.arrival];
+    [self.campusPicker selectRow:arrivalIndex inComponent:2 animated:NO];
+
+    CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - [SBTConstants UITopOffset] - self.promptView.height;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [self.tableView setHeight:tableViewHeight];
+    [self.promptView setY:tableViewHeight];
+    [UIView commitAnimations];
+}
+
+- (void)hidePrompt
+{
+    CGFloat tableViewHeight = [SBTConstants UIScreenHeight] - [SBTConstants UITopOffset];
+
+    [UIView beginAnimations:nil context:NULL];
+    [self.tableView setHeight:tableViewHeight];
+    [self.promptView setY:[SBTConstants UIScreenHeight]];
+    [UIView commitAnimations];
 }
 
 
@@ -321,6 +467,16 @@
 
 #pragma mark - UI components
 
+- (UIView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:[SBTConstants UIScreenFrame]];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
+}
+
 - (UIView *)header
 {
     if (_header == nil) {
@@ -355,6 +511,37 @@
     NSString *returnRouteString = [NSString stringWithFormat:@"查看返程 ( %@ ▸ %@ )", self.arrival, self.departure];
     [_buttonReturnRoute setTitle:returnRouteString forState:UIControlStateNormal];
     return _buttonReturnRoute;
+}
+
+- (UIPickerView *)campusPicker
+{
+    if (_campusPicker == nil) {
+        // hide campusPicker under the bottom of screen
+        _campusPicker = [UIPickerView new];
+        _campusPicker.showsSelectionIndicator = YES;
+        _campusPicker.delegate = self;
+        _campusPicker.dataSource = self;
+        pickerHiddeh = true;
+    }
+    return _campusPicker;
+}
+
+- (UIButton *)doneButton
+{
+    if (_doneButton == nil) {
+        _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_doneButton setTitle:@"完成" forState:UIControlStateNormal];
+        [_doneButton addTarget:self action:@selector(doneButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _doneButton;
+}
+
+- (UIView *)promptView
+{
+    if (_promptView == nil) {
+        _promptView = [UIView new];
+    }
+    return _promptView;
 }
 
 @end

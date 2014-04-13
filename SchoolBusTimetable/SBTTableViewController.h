@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBTTableViewController : UITableViewController
+@interface SBTTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, readonly, strong) NSString *departure;
 @property (nonatomic, readonly, strong) NSString *arrival;

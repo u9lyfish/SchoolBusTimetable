@@ -26,8 +26,8 @@
 		4948665B18F58A0300EAA77C /* SBTNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948665A18F58A0300EAA77C /* SBTNotificationHelper.m */; };
 		4948665F18F78D1200EAA77C /* SBTDateTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948665E18F78D1200EAA77C /* SBTDateTimeHelper.m */; };
 		4948666218F79D6B00EAA77C /* SBTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948666118F79D6B00EAA77C /* SBTConstants.m */; };
+		4948666618F91BD200EAA77C /* UIView+CGLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4948666518F91BD200EAA77C /* UIView+CGLibrary.m */; };
 		4952987618EE5645005EC1F0 /* SBTTimetableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4952987518EE5645005EC1F0 /* SBTTimetableModel.m */; };
-		4952988618F16DFC005EC1F0 /* SBTCampusPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +69,10 @@
 		4948665E18F78D1200EAA77C /* SBTDateTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTDateTimeHelper.m; sourceTree = "<group>"; };
 		4948666018F79D6B00EAA77C /* SBTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTConstants.h; sourceTree = "<group>"; };
 		4948666118F79D6B00EAA77C /* SBTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTConstants.m; sourceTree = "<group>"; };
+		4948666418F91BD200EAA77C /* UIView+CGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CGLibrary.h"; sourceTree = "<group>"; };
+		4948666518F91BD200EAA77C /* UIView+CGLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CGLibrary.m"; sourceTree = "<group>"; };
 		4952987418EE5645005EC1F0 /* SBTTimetableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTTimetableModel.h; sourceTree = "<group>"; };
 		4952987518EE5645005EC1F0 /* SBTTimetableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTTimetableModel.m; sourceTree = "<group>"; };
-		4952988418F16DFC005EC1F0 /* SBTCampusPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTCampusPickerViewController.h; sourceTree = "<group>"; };
-		4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTCampusPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +136,7 @@
 				492681C418EAAA4600E5CBB4 /* SBTAppDelegate.m */,
 				492681F218EBF9F300E5CBB4 /* SBTTableViewController.h */,
 				492681F318EBF9F300E5CBB4 /* SBTTableViewController.m */,
-				4952988418F16DFC005EC1F0 /* SBTCampusPickerViewController.h */,
-				4952988518F16DFC005EC1F0 /* SBTCampusPickerViewController.m */,
+				4948666718F91BE000EAA77C /* Class Categories */,
 				4948654518F2471000EAA77C /* SBTBusDetailViewController.h */,
 				4948654618F2471000EAA77C /* SBTBusDetailViewController.m */,
 				4948665C18F78CE200EAA77C /* Helper Classes */,
@@ -198,6 +197,15 @@
 				4948666118F79D6B00EAA77C /* SBTConstants.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		4948666718F91BE000EAA77C /* Class Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4948666418F91BD200EAA77C /* UIView+CGLibrary.h */,
+				4948666518F91BD200EAA77C /* UIView+CGLibrary.m */,
+			);
+			name = "Class Categories";
 			sourceTree = "<group>";
 		};
 		4952987718EE631B005EC1F0 /* Model Classes */ = {
@@ -308,13 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4948666618F91BD200EAA77C /* UIView+CGLibrary.m in Sources */,
 				492681C518EAAA4600E5CBB4 /* SBTAppDelegate.m in Sources */,
 				492681C118EAAA4600E5CBB4 /* main.m in Sources */,
 				4948654718F2471000EAA77C /* SBTBusDetailViewController.m in Sources */,
 				492681F418EBF9F300E5CBB4 /* SBTTableViewController.m in Sources */,
 				4948665F18F78D1200EAA77C /* SBTDateTimeHelper.m in Sources */,
 				4952987618EE5645005EC1F0 /* SBTTimetableModel.m in Sources */,
-				4952988618F16DFC005EC1F0 /* SBTCampusPickerViewController.m in Sources */,
 				4948666218F79D6B00EAA77C /* SBTConstants.m in Sources */,
 				4948665B18F58A0300EAA77C /* SBTNotificationHelper.m in Sources */,
 			);

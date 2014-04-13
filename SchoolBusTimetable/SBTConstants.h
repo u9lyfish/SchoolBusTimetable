@@ -14,7 +14,13 @@
 
 + (CGFloat)UIRowHeight;
 
++ (CGFloat)UIPickerHeight;
+
 + (CGFloat)UIScreenWidth;
+
++ (CGFloat)UIScreenHeight;
+
++ (CGRect)UIScreenFrame;
 
 + (UIColor *)UIDefaultBackgroundColor;
 

@@ -25,9 +25,24 @@
     return 30.0f;
 }
 
++ (CGFloat)UIPickerHeight
+{
+    return 216.0f;
+}
+
 + (CGFloat)UIScreenWidth
 {
-    return 320.0f;
+    return [[UIScreen mainScreen] bounds].size.width;
+}
+
++ (CGFloat)UIScreenHeight
+{
+    return [[UIScreen mainScreen] bounds].size.height;
+}
+
++ (CGRect)UIScreenFrame
+{
+    return [[UIScreen mainScreen] bounds];
 }
 
 + (UIColor *)UIDefaultBackgroundColor
